@@ -4,3 +4,7 @@ no 3
 me 4
 five 5
 six 6
+se ven 7
+he 8 nine
+9 eat 7 ??
+Ten

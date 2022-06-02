@@ -24,7 +24,12 @@ public class List {
     }
     
     public String getItem(int n) {
-        return list.get(n);
+        try {
+            list.get(n);
+            return list.get(n);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
     
     public int getSize() {

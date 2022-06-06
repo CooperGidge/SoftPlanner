@@ -333,16 +333,9 @@ public class SoftPlanner extends javax.swing.JFrame {
     private int todoIndex3 = 2;
     
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
-//        if (li.getItem(todoIndex1) != null) {
-//           todo1Title.setText(li.getItem(todoIndex1)); 
-//        } else {
-//            todo1Title.setText(blank); 
-//        }
         setTextLoad(todo1Title, todoIndex1);
         setTextLoad(todo2Title, todoIndex2);
         setTextLoad(todo3Title, todoIndex3);
-//        setTextLoad(todo2Title, todoIndex2);
-//        setTextLoad(todo3Title, todoIndex3);
     }//GEN-LAST:event_loadActionPerformed
     
     private void setTextLoad(javax.swing.JTextArea l, int i) {
@@ -360,7 +353,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             todoIndex3+= 3;
             load.doClick();
         } else {
-            JOptionPane.showMessageDialog(null, "You are already at the end of the list.");
+            endOfLine();
         }
     }//GEN-LAST:event_todoNextActionPerformed
 
@@ -371,10 +364,18 @@ public class SoftPlanner extends javax.swing.JFrame {
             todoIndex3-= 3;
             load.doClick();
         } else {
-            JOptionPane.showMessageDialog(null, "You are already at the start of the list.");
+            startOfLine();
         }
     }//GEN-LAST:event_todoPrevActionPerformed
-
+    
+    private void startOfLine() {
+        JOptionPane.showMessageDialog(null, "You are already at the start of the list.");
+    }
+    
+    private void endOfLine() {
+        JOptionPane.showMessageDialog(null, "You are already at the end of the list.");
+    }
+    
     private void todoNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNext3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_todoNext3ActionPerformed
@@ -407,7 +408,7 @@ public class SoftPlanner extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_load4ActionPerformed
     
-    private static List li = new List();
+    private static ToDoList li = new ToDoList();
     private static SoftPlanner sp = new SoftPlanner();
     
     /**
@@ -453,7 +454,7 @@ public class SoftPlanner extends javax.swing.JFrame {
         // Try reading the file
         try {
             // Get the file
-            BufferedReader readFile = new BufferedReader(new FileReader("list.txt"));
+            BufferedReader readFile = new BufferedReader(new FileReader("lists/ToDoList.txt"));
             // Create an empty String to hold the contents of the current line
             String currentLine;
             // Loop through each line in the text file until there are none left

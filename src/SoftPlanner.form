@@ -28,7 +28,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="todoNext" max="32767" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="todoLabel" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" alignment="0" pref="150" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" pref="150" max="32767" attributes="0"/>
                   <Component id="jScrollPane3" alignment="0" pref="150" max="32767" attributes="0"/>
@@ -36,12 +36,12 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="todoNext3" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="doingNext" alignment="1" max="32767" attributes="0"/>
+                  <Component id="doingLabel" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                   <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane5" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane4" alignment="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="todoPrev3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="doingPrev" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -71,9 +71,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="doingLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="todoPrev3" min="-2" max="-2" attributes="0"/>
+                      <Component id="doingPrev" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane6" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -81,10 +81,10 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="todoNext3" min="-2" max="-2" attributes="0"/>
+                      <Component id="doingNext" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="todoLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="todoPrev" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -103,10 +103,10 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="todoPrev4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="load" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="load" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -162,7 +162,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todoPrevActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="todoLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="TO DO"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -235,7 +235,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo3Title3">
+        <Component class="javax.swing.JTextArea" name="doing3Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -246,12 +246,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="todoNext3">
+    <Component class="javax.swing.JButton" name="doingNext">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todoNext3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doingNextActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane5">
@@ -261,7 +261,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo2Title3">
+        <Component class="javax.swing.JTextArea" name="doing2Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -272,15 +272,15 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="todoPrev3">
+    <Component class="javax.swing.JButton" name="doingPrev">
       <Properties>
         <Property name="text" type="java.lang.String" value="Previous"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todoPrev3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doingPrevActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="doingLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="DOING"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -293,7 +293,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo1Title3">
+        <Component class="javax.swing.JTextArea" name="doing1Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>

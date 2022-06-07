@@ -8,6 +8,26 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 
+class IndexInt {
+    public int a;
+    
+    public IndexInt(int x) {
+        a = x;
+    }
+    
+    public void addThree() {
+        a += 3;
+    }
+    
+    public void subtractThree() {
+        a -= 3;
+    }
+    
+    public int value() {
+        return a;
+    }
+}
+
 /**
  *
  * @author cogid4775
@@ -33,7 +53,7 @@ public class SoftPlanner extends javax.swing.JFrame {
         load = new javax.swing.JButton();
         todoNext = new javax.swing.JButton();
         todoPrev = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        todoLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         todo2Title = new javax.swing.JTextArea();
@@ -42,14 +62,14 @@ public class SoftPlanner extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         todo3Title = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
-        todo3Title3 = new javax.swing.JTextArea();
-        todoNext3 = new javax.swing.JButton();
+        doing3Title = new javax.swing.JTextArea();
+        doingNext = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        todo2Title3 = new javax.swing.JTextArea();
-        todoPrev3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        doing2Title = new javax.swing.JTextArea();
+        doingPrev = new javax.swing.JButton();
+        doingLabel = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        todo1Title3 = new javax.swing.JTextArea();
+        doing1Title = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         todo2Title4 = new javax.swing.JTextArea();
@@ -88,8 +108,8 @@ public class SoftPlanner extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("TO DO");
-        jLabel1.setToolTipText("");
+        todoLabel.setText("TO DO");
+        todoLabel.setToolTipText("");
 
         jLabel4.setText("OPTIONS");
         jLabel4.setToolTipText("");
@@ -115,43 +135,43 @@ public class SoftPlanner extends javax.swing.JFrame {
         todo3Title.setText(" ");
         jScrollPane3.setViewportView(todo3Title);
 
-        todo3Title3.setEditable(false);
-        todo3Title3.setColumns(20);
-        todo3Title3.setLineWrap(true);
-        todo3Title3.setRows(5);
-        todo3Title3.setText(" ");
-        jScrollPane4.setViewportView(todo3Title3);
+        doing3Title.setEditable(false);
+        doing3Title.setColumns(20);
+        doing3Title.setLineWrap(true);
+        doing3Title.setRows(5);
+        doing3Title.setText(" ");
+        jScrollPane4.setViewportView(doing3Title);
 
-        todoNext3.setText("Next");
-        todoNext3.addActionListener(new java.awt.event.ActionListener() {
+        doingNext.setText("Next");
+        doingNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoNext3ActionPerformed(evt);
+                doingNextActionPerformed(evt);
             }
         });
 
-        todo2Title3.setEditable(false);
-        todo2Title3.setColumns(20);
-        todo2Title3.setLineWrap(true);
-        todo2Title3.setRows(5);
-        todo2Title3.setText(" ");
-        jScrollPane5.setViewportView(todo2Title3);
+        doing2Title.setEditable(false);
+        doing2Title.setColumns(20);
+        doing2Title.setLineWrap(true);
+        doing2Title.setRows(5);
+        doing2Title.setText(" ");
+        jScrollPane5.setViewportView(doing2Title);
 
-        todoPrev3.setText("Previous");
-        todoPrev3.addActionListener(new java.awt.event.ActionListener() {
+        doingPrev.setText("Previous");
+        doingPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoPrev3ActionPerformed(evt);
+                doingPrevActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("DOING");
-        jLabel5.setToolTipText("");
+        doingLabel.setText("DOING");
+        doingLabel.setToolTipText("");
 
-        todo1Title3.setEditable(false);
-        todo1Title3.setColumns(20);
-        todo1Title3.setLineWrap(true);
-        todo1Title3.setRows(5);
-        todo1Title3.setText(" ");
-        jScrollPane6.setViewportView(todo1Title3);
+        doing1Title.setEditable(false);
+        doing1Title.setColumns(20);
+        doing1Title.setLineWrap(true);
+        doing1Title.setRows(5);
+        doing1Title.setText(" ");
+        jScrollPane6.setViewportView(doing1Title);
 
         jLabel6.setText("DONE");
         jLabel6.setToolTipText("");
@@ -227,19 +247,19 @@ public class SoftPlanner extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(todoNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(todoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(todoPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(todoNext3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doingNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(doingLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(todoPrev3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(doingPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(todoNext4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,9 +284,9 @@ public class SoftPlanner extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(doingLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(todoPrev3)
+                        .addComponent(doingPrev)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -274,9 +294,9 @@ public class SoftPlanner extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(todoNext3))
+                        .addComponent(doingNext))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(todoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(todoPrev)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -293,10 +313,10 @@ public class SoftPlanner extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(todoPrev4))
-                            .addComponent(load)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(34, 34, 34)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(load)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -328,9 +348,13 @@ public class SoftPlanner extends javax.swing.JFrame {
     * SECTION: TODO
     * -------------
     */
-    private int todoIndex1 = 0;
-    private int todoIndex2 = 1;
-    private int todoIndex3 = 2;
+    private IndexInt todoIndex1 = new IndexInt(0);
+    private IndexInt todoIndex2 = new IndexInt(1);
+    private IndexInt todoIndex3 = new IndexInt(2);
+    
+    private int doingIndex1 = 0;
+    private int doingIndex2 = 1;
+    private int doingIndex3 = 2;
     
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
         setTextLoad(todo1Title, todoIndex1);
@@ -338,51 +362,51 @@ public class SoftPlanner extends javax.swing.JFrame {
         setTextLoad(todo3Title, todoIndex3);
     }//GEN-LAST:event_loadActionPerformed
     
-    private void setTextLoad(javax.swing.JTextArea l, int i) {
-        if (li.getItem(i) != null) {
-           l.setText(li.getItem(i)); 
+    private void setTextLoad(javax.swing.JTextArea l, IndexInt i) {
+        if (li.getItem(i.value()) != null) {
+           l.setText(li.getItem(i.value())); 
         } else {
             l.setText(blank); 
         }
     }
     
     private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
-        if (todoIndex3 < (li.getSize()-1)) {
-            todoIndex1+= 3;
-            todoIndex2+= 3;
-            todoIndex3+= 3;
-            load.doClick();
-        } else {
-            endOfLine();
-        }
+        changePage(todoIndex1, todoIndex2, todoIndex3, 1, li);
     }//GEN-LAST:event_todoNextActionPerformed
 
     private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
-        if (todoIndex1 > 0) {
-            todoIndex1-= 3;
-            todoIndex2-= 3;
-            todoIndex3-= 3;
-            load.doClick();
-        } else {
-            startOfLine();
-        }
+        changePage(todoIndex1, todoIndex2, todoIndex3, 0, li);
     }//GEN-LAST:event_todoPrevActionPerformed
     
-    private void startOfLine() {
-        JOptionPane.showMessageDialog(null, "You are already at the start of the list.");
+    private void changePage(IndexInt i1, IndexInt i2, IndexInt i3, int x, ToDoList list) {
+        if (x == 0) {
+            if (i1.value() > 0) {
+                i1.subtractThree();
+                i2.subtractThree();
+                i3.subtractThree();
+                load.doClick();
+            } else {
+                JOptionPane.showMessageDialog(null, "You are already at the start of the list.");
+            }
+        } else {
+            if (i3.value() < (list.getSize()-1)) {
+                i1.addThree();
+                i2.addThree();
+                i3.addThree();
+                load.doClick();
+            } else {
+                JOptionPane.showMessageDialog(null, "You are already at the end of the list.");
+            }
+        }
     }
     
-    private void endOfLine() {
-        JOptionPane.showMessageDialog(null, "You are already at the end of the list.");
-    }
-    
-    private void todoNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNext3ActionPerformed
+    private void doingNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingNextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_todoNext3ActionPerformed
+    }//GEN-LAST:event_doingNextActionPerformed
 
-    private void todoPrev3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrev3ActionPerformed
+    private void doingPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingPrevActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_todoPrev3ActionPerformed
+    }//GEN-LAST:event_doingPrevActionPerformed
 
     private void todoNext4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNext4ActionPerformed
         // TODO add your handling code here:
@@ -409,6 +433,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     }//GEN-LAST:event_load4ActionPerformed
     
     private static ToDoList li = new ToDoList();
+    private static DoingList li2 = new DoingList();
     private static SoftPlanner sp = new SoftPlanner();
     
     /**
@@ -478,9 +503,13 @@ public class SoftPlanner extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextArea doing1Title;
+    private javax.swing.JTextArea doing2Title;
+    private javax.swing.JTextArea doing3Title;
+    private javax.swing.JLabel doingLabel;
+    private javax.swing.JButton doingNext;
+    private javax.swing.JButton doingPrev;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -497,19 +526,15 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JButton load3;
     private javax.swing.JButton load4;
     private javax.swing.JTextArea todo1Title;
-    private javax.swing.JTextArea todo1Title3;
     private javax.swing.JTextArea todo1Title4;
     private javax.swing.JTextArea todo2Title;
-    private javax.swing.JTextArea todo2Title3;
     private javax.swing.JTextArea todo2Title4;
     private javax.swing.JTextArea todo3Title;
-    private javax.swing.JTextArea todo3Title3;
     private javax.swing.JTextArea todo3Title4;
+    private javax.swing.JLabel todoLabel;
     private javax.swing.JButton todoNext;
-    private javax.swing.JButton todoNext3;
     private javax.swing.JButton todoNext4;
     private javax.swing.JButton todoPrev;
-    private javax.swing.JButton todoPrev3;
     private javax.swing.JButton todoPrev4;
     // End of variables declaration//GEN-END:variables
 }

@@ -45,12 +45,12 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="todoNext4" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="doneNext" alignment="1" max="32767" attributes="0"/>
+                  <Component id="doneLabel" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                   <Component id="jScrollPane9" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane7" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane8" alignment="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="todoPrev4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="donePrev" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -99,9 +99,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="doneLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="todoPrev4" min="-2" max="-2" attributes="0"/>
+                              <Component id="donePrev" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jScrollPane8" min="-2" pref="66" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="todoNext4" min="-2" max="-2" attributes="0"/>
+                              <Component id="doneNext" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="load1" min="-2" max="-2" attributes="0"/>
@@ -304,7 +304,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="doneLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="DONE"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -317,7 +317,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo2Title4">
+        <Component class="javax.swing.JTextArea" name="done2Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -328,20 +328,20 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="todoNext4">
+    <Component class="javax.swing.JButton" name="doneNext">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todoNext4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doneNextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="todoPrev4">
+    <Component class="javax.swing.JButton" name="donePrev">
       <Properties>
         <Property name="text" type="java.lang.String" value="Previous"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todoPrev4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="donePrevActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane8">
@@ -351,7 +351,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo3Title4">
+        <Component class="javax.swing.JTextArea" name="done3Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -369,7 +369,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="todo1Title4">
+        <Component class="javax.swing.JTextArea" name="done1Title">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>

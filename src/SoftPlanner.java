@@ -70,15 +70,15 @@ public class SoftPlanner extends javax.swing.JFrame {
         doingLabel = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         doing1Title = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
+        doneLabel = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        todo2Title4 = new javax.swing.JTextArea();
-        todoNext4 = new javax.swing.JButton();
-        todoPrev4 = new javax.swing.JButton();
+        done2Title = new javax.swing.JTextArea();
+        doneNext = new javax.swing.JButton();
+        donePrev = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
-        todo3Title4 = new javax.swing.JTextArea();
+        done3Title = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
-        todo1Title4 = new javax.swing.JTextArea();
+        done1Title = new javax.swing.JTextArea();
         load1 = new javax.swing.JButton();
         load2 = new javax.swing.JButton();
         load3 = new javax.swing.JButton();
@@ -173,43 +173,43 @@ public class SoftPlanner extends javax.swing.JFrame {
         doing1Title.setText(" ");
         jScrollPane6.setViewportView(doing1Title);
 
-        jLabel6.setText("DONE");
-        jLabel6.setToolTipText("");
+        doneLabel.setText("DONE");
+        doneLabel.setToolTipText("");
 
-        todo2Title4.setEditable(false);
-        todo2Title4.setColumns(20);
-        todo2Title4.setLineWrap(true);
-        todo2Title4.setRows(5);
-        todo2Title4.setText(" ");
-        jScrollPane7.setViewportView(todo2Title4);
+        done2Title.setEditable(false);
+        done2Title.setColumns(20);
+        done2Title.setLineWrap(true);
+        done2Title.setRows(5);
+        done2Title.setText(" ");
+        jScrollPane7.setViewportView(done2Title);
 
-        todoNext4.setText("Next");
-        todoNext4.addActionListener(new java.awt.event.ActionListener() {
+        doneNext.setText("Next");
+        doneNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoNext4ActionPerformed(evt);
+                doneNextActionPerformed(evt);
             }
         });
 
-        todoPrev4.setText("Previous");
-        todoPrev4.addActionListener(new java.awt.event.ActionListener() {
+        donePrev.setText("Previous");
+        donePrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todoPrev4ActionPerformed(evt);
+                donePrevActionPerformed(evt);
             }
         });
 
-        todo3Title4.setEditable(false);
-        todo3Title4.setColumns(20);
-        todo3Title4.setLineWrap(true);
-        todo3Title4.setRows(5);
-        todo3Title4.setText(" ");
-        jScrollPane8.setViewportView(todo3Title4);
+        done3Title.setEditable(false);
+        done3Title.setColumns(20);
+        done3Title.setLineWrap(true);
+        done3Title.setRows(5);
+        done3Title.setText(" ");
+        jScrollPane8.setViewportView(done3Title);
 
-        todo1Title4.setEditable(false);
-        todo1Title4.setColumns(20);
-        todo1Title4.setLineWrap(true);
-        todo1Title4.setRows(5);
-        todo1Title4.setText(" ");
-        jScrollPane9.setViewportView(todo1Title4);
+        done1Title.setEditable(false);
+        done1Title.setColumns(20);
+        done1Title.setLineWrap(true);
+        done1Title.setRows(5);
+        done1Title.setText(" ");
+        jScrollPane9.setViewportView(done1Title);
 
         load1.setText("Add Item");
         load1.addActionListener(new java.awt.event.ActionListener() {
@@ -262,12 +262,12 @@ public class SoftPlanner extends javax.swing.JFrame {
                     .addComponent(doingPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(todoNext4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doneNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(doneLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(todoPrev4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(donePrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,9 +310,9 @@ public class SoftPlanner extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(doneLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(todoPrev4))
+                                .addComponent(donePrev))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -326,7 +326,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(todoNext4))
+                                .addComponent(doneNext))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(load1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -352,34 +352,46 @@ public class SoftPlanner extends javax.swing.JFrame {
     private IndexInt todoIndex2 = new IndexInt(1);
     private IndexInt todoIndex3 = new IndexInt(2);
     
-    private int doingIndex1 = 0;
-    private int doingIndex2 = 1;
-    private int doingIndex3 = 2;
+    private IndexInt doingIndex1 = new IndexInt(0);
+    private IndexInt doingIndex2 = new IndexInt(1);
+    private IndexInt doingIndex3 = new IndexInt(2);
+    
+    private IndexInt doneIndex1 = new IndexInt(0);
+    private IndexInt doneIndex2 = new IndexInt(1);
+    private IndexInt doneIndex3 = new IndexInt(2);
     
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
-        setTextLoad(todo1Title, todoIndex1);
-        setTextLoad(todo2Title, todoIndex2);
-        setTextLoad(todo3Title, todoIndex3);
+        setTextLoad(todo1Title, todoIndex1, li);
+        setTextLoad(todo2Title, todoIndex2, li);
+        setTextLoad(todo3Title, todoIndex3, li);
+        
+        setTextLoad(doing1Title, doingIndex1, li2);
+        setTextLoad(doing2Title, doingIndex2, li2);
+        setTextLoad(doing3Title, doingIndex3, li2);
+        
+        setTextLoad(done1Title, doneIndex1, li3);
+        setTextLoad(done2Title, doneIndex2, li3);
+        setTextLoad(done3Title, doneIndex3, li3);
     }//GEN-LAST:event_loadActionPerformed
     
-    private void setTextLoad(javax.swing.JTextArea l, IndexInt i) {
-        if (li.getItem(i.value()) != null) {
-           l.setText(li.getItem(i.value())); 
+    private void setTextLoad(javax.swing.JTextArea l, IndexInt i, List list) {
+        if (list.getItem(i.value()) != null) {
+           l.setText(list.getItem(i.value()));
         } else {
             l.setText(blank); 
         }
     }
     
     private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
-        changePage(todoIndex1, todoIndex2, todoIndex3, 1, li);
+        changePage(todoIndex1, todoIndex2, todoIndex3, true, li);
     }//GEN-LAST:event_todoNextActionPerformed
 
     private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
-        changePage(todoIndex1, todoIndex2, todoIndex3, 0, li);
+        changePage(todoIndex1, todoIndex2, todoIndex3, false, li);
     }//GEN-LAST:event_todoPrevActionPerformed
     
-    private void changePage(IndexInt i1, IndexInt i2, IndexInt i3, int x, ToDoList list) {
-        if (x == 0) {
+    private void changePage(IndexInt i1, IndexInt i2, IndexInt i3, boolean isNext, List list) {
+        if (!isNext) {
             if (i1.value() > 0) {
                 i1.subtractThree();
                 i2.subtractThree();
@@ -401,20 +413,20 @@ public class SoftPlanner extends javax.swing.JFrame {
     }
     
     private void doingNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingNextActionPerformed
-        // TODO add your handling code here:
+        changePage(doingIndex1, doingIndex2, doingIndex3, true, li2);
     }//GEN-LAST:event_doingNextActionPerformed
 
     private void doingPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingPrevActionPerformed
-        // TODO add your handling code here:
+        changePage(doingIndex1, doingIndex2, doingIndex3, false, li2);
     }//GEN-LAST:event_doingPrevActionPerformed
 
-    private void todoNext4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNext4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_todoNext4ActionPerformed
+    private void doneNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneNextActionPerformed
+        changePage(doneIndex1, doneIndex2, doneIndex3, true, li3);
+    }//GEN-LAST:event_doneNextActionPerformed
 
-    private void todoPrev4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrev4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_todoPrev4ActionPerformed
+    private void donePrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donePrevActionPerformed
+        changePage(doneIndex1, doneIndex2, doneIndex3, false, li3);
+    }//GEN-LAST:event_donePrevActionPerformed
 
     private void load1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load1ActionPerformed
         // TODO add your handling code here:
@@ -432,8 +444,10 @@ public class SoftPlanner extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_load4ActionPerformed
     
-    private static ToDoList li = new ToDoList();
-    private static DoingList li2 = new DoingList();
+    private static List li = new List();
+    private static List li2 = new List();
+    private static List li3 = new List();
+    
     private static SoftPlanner sp = new SoftPlanner();
     
     /**
@@ -471,15 +485,17 @@ public class SoftPlanner extends javax.swing.JFrame {
         });
         
         // Run on program start
-        loadFile();
+        loadFile("lists/ToDoList.txt", li);
+        loadFile("lists/DoingList.txt", li2);
+        loadFile("lists/DoneList.txt", li3);
         sp.load.doClick();
     }
     
-    public static void loadFile() {
+    public static void loadFile(String file, List list) {
         // Try reading the file
         try {
             // Get the file
-            BufferedReader readFile = new BufferedReader(new FileReader("lists/ToDoList.txt"));
+            BufferedReader readFile = new BufferedReader(new FileReader(file));
             // Create an empty String to hold the contents of the current line
             String currentLine;
             // Loop through each line in the text file until there are none left
@@ -492,8 +508,11 @@ public class SoftPlanner extends javax.swing.JFrame {
                     break;
                 }
                 // Add the contents of this line to a new element of the ArrayList
-                li.addItem(currentLine);
+                list.addItem(currentLine);
+                System.out.println(list.getItem(0));
+                //System.out.println(currentLine);
             }
+            System.out.println("");
             // Close the file now that we are done with it
             readFile.close();
         } catch (IOException ioe) {
@@ -509,8 +528,13 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JLabel doingLabel;
     private javax.swing.JButton doingNext;
     private javax.swing.JButton doingPrev;
+    private javax.swing.JTextArea done1Title;
+    private javax.swing.JTextArea done2Title;
+    private javax.swing.JTextArea done3Title;
+    private javax.swing.JLabel doneLabel;
+    private javax.swing.JButton doneNext;
+    private javax.swing.JButton donePrev;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -526,15 +550,10 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JButton load3;
     private javax.swing.JButton load4;
     private javax.swing.JTextArea todo1Title;
-    private javax.swing.JTextArea todo1Title4;
     private javax.swing.JTextArea todo2Title;
-    private javax.swing.JTextArea todo2Title4;
     private javax.swing.JTextArea todo3Title;
-    private javax.swing.JTextArea todo3Title4;
     private javax.swing.JLabel todoLabel;
     private javax.swing.JButton todoNext;
-    private javax.swing.JButton todoNext4;
     private javax.swing.JButton todoPrev;
-    private javax.swing.JButton todoPrev4;
     // End of variables declaration//GEN-END:variables
 }

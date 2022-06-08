@@ -8,26 +8,6 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 
-class IndexInt {
-    public int a;
-    
-    public IndexInt(int x) {
-        a = x;
-    }
-    
-    public void addThree() {
-        a += 3;
-    }
-    
-    public void subtractThree() {
-        a -= 3;
-    }
-    
-    public int value() {
-        return a;
-    }
-}
-
 /**
  *
  * @author cogid4775
@@ -79,10 +59,19 @@ public class SoftPlanner extends javax.swing.JFrame {
         done3Title = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
         done1Title = new javax.swing.JTextArea();
-        load1 = new javax.swing.JButton();
+        add = new javax.swing.JButton();
         load2 = new javax.swing.JButton();
-        load3 = new javax.swing.JButton();
+        remove = new javax.swing.JButton();
         load4 = new javax.swing.JButton();
+        todo1ID = new javax.swing.JLabel();
+        doing1ID = new javax.swing.JLabel();
+        done1ID = new javax.swing.JLabel();
+        todo2ID = new javax.swing.JLabel();
+        doing2ID = new javax.swing.JLabel();
+        done2ID = new javax.swing.JLabel();
+        todo3ID = new javax.swing.JLabel();
+        doing3ID = new javax.swing.JLabel();
+        done3ID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SoftPlanner");
@@ -211,10 +200,10 @@ public class SoftPlanner extends javax.swing.JFrame {
         done1Title.setText(" ");
         jScrollPane9.setViewportView(done1Title);
 
-        load1.setText("Add Item");
-        load1.addActionListener(new java.awt.event.ActionListener() {
+        add.setText("Add Item");
+        add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                load1ActionPerformed(evt);
+                addActionPerformed(evt);
             }
         });
 
@@ -225,10 +214,10 @@ public class SoftPlanner extends javax.swing.JFrame {
             }
         });
 
-        load3.setText("Delete Item");
-        load3.addActionListener(new java.awt.event.ActionListener() {
+        remove.setText("Delete Item");
+        remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                load3ActionPerformed(evt);
+                removeActionPerformed(evt);
             }
         });
 
@@ -239,74 +228,128 @@ public class SoftPlanner extends javax.swing.JFrame {
             }
         });
 
+        todo1ID.setText("(------)");
+        todo1ID.setToolTipText("");
+
+        doing1ID.setText("(------)");
+        doing1ID.setToolTipText("");
+
+        done1ID.setText("(------)");
+        done1ID.setToolTipText("");
+
+        todo2ID.setText("(------)");
+        todo2ID.setToolTipText("");
+
+        doing2ID.setText("(------)");
+        doing2ID.setToolTipText("");
+
+        done2ID.setText("(------)");
+        done2ID.setToolTipText("");
+
+        todo3ID.setText("(------)");
+        todo3ID.setToolTipText("");
+
+        doing3ID.setText("(------)");
+        doing3ID.setToolTipText("");
+
+        done3ID.setText("(------)");
+        done3ID.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(todoNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(todoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(todoPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(doingNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(doingLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(doingPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(doneNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(doneLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(donePrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(load, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(load1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(load2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(load3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(load4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(todo2ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(todoNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(todoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(todoPrev, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(todo1ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(doingNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(doingLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(doingPrev, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(doing1ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(doing2ID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(doneNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(doneLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(donePrev, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(done1ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(load, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(load2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(load4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(done2ID, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(todo3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(doing3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(done3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(doingLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(doingPrev)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(doingNext))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(todoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(todoPrev)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(todoNext))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(todoLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(todoPrev)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(doingLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(doingPrev)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(todo1ID)
+                            .addComponent(doing1ID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(todo2ID)
+                            .addComponent(doing2ID)
+                            .addComponent(done2ID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -320,77 +363,64 @@ public class SoftPlanner extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(doneNext))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(load1)
+                                .addComponent(add)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(load2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(load3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(load4)))))
+                                .addComponent(remove))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(done1ID)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(load4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(todo3ID)
+                    .addComponent(doing3ID)
+                    .addComponent(done3ID))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(todoNext)
+                    .addComponent(doingNext)
+                    .addComponent(doneNext))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+     * Display the lists
+     * Code solely to display the lists
+     * Code to edit the lists is below
+     */
+    
     private final String blank = " ";
     
-    /*
-    * -------------
-    * SECTION: TODO
-    * -------------
-    */
-    private IndexInt todoIndex1 = new IndexInt(0);
-    private IndexInt todoIndex2 = new IndexInt(1);
-    private IndexInt todoIndex3 = new IndexInt(2);
+    private Index todoIndex1 = new Index(0);
+    private Index todoIndex2 = new Index(1);
+    private Index todoIndex3 = new Index(2);
     
-    private IndexInt doingIndex1 = new IndexInt(0);
-    private IndexInt doingIndex2 = new IndexInt(1);
-    private IndexInt doingIndex3 = new IndexInt(2);
+    private Index doingIndex1 = new Index(0);
+    private Index doingIndex2 = new Index(1);
+    private Index doingIndex3 = new Index(2);
     
-    private IndexInt doneIndex1 = new IndexInt(0);
-    private IndexInt doneIndex2 = new IndexInt(1);
-    private IndexInt doneIndex3 = new IndexInt(2);
+    private Index doneIndex1 = new Index(0);
+    private Index doneIndex2 = new Index(1);
+    private Index doneIndex3 = new Index(2);
     
-    private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
-        setTextLoad(todo1Title, todoIndex1, li);
-        setTextLoad(todo2Title, todoIndex2, li);
-        setTextLoad(todo3Title, todoIndex3, li);
-        
-        setTextLoad(doing1Title, doingIndex1, li2);
-        setTextLoad(doing2Title, doingIndex2, li2);
-        setTextLoad(doing3Title, doingIndex3, li2);
-        
-        setTextLoad(done1Title, doneIndex1, li3);
-        setTextLoad(done2Title, doneIndex2, li3);
-        setTextLoad(done3Title, doneIndex3, li3);
-    }//GEN-LAST:event_loadActionPerformed
-    
-    private void setTextLoad(javax.swing.JTextArea l, IndexInt i, List list) {
+    private void setTextLoad(javax.swing.JTextArea l, Index i, javax.swing.JLabel id, List list) {
         if (list.getItem(i.value()) != null) {
            l.setText(list.getItem(i.value()));
+           id.setText("ID: " + i.value());
         } else {
-            l.setText(blank); 
+            l.setText(blank);
+            id.setText("(------)");
         }
     }
     
-    private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
-        changePage(todoIndex1, todoIndex2, todoIndex3, true, li);
-    }//GEN-LAST:event_todoNextActionPerformed
-
-    private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
-        changePage(todoIndex1, todoIndex2, todoIndex3, false, li);
-    }//GEN-LAST:event_todoPrevActionPerformed
-    
-    private void changePage(IndexInt i1, IndexInt i2, IndexInt i3, boolean isNext, List list) {
+    private void changePage(Index i1, Index i2, Index i3, boolean isNext, List list) {
         if (!isNext) {
             if (i1.value() > 0) {
                 i1.subtractThree();
@@ -412,6 +442,28 @@ public class SoftPlanner extends javax.swing.JFrame {
         }
     }
     
+    private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
+        setTextLoad(todo1Title, todoIndex1, todo1ID, li);
+        setTextLoad(todo2Title, todoIndex2, todo2ID, li);
+        setTextLoad(todo3Title, todoIndex3, todo3ID, li);
+        
+        setTextLoad(doing1Title, doingIndex1, doing1ID, li2);
+        setTextLoad(doing2Title, doingIndex2, doing2ID, li2);
+        setTextLoad(doing3Title, doingIndex3, doing3ID, li2);
+        
+        setTextLoad(done1Title, doneIndex1, done1ID, li3);
+        setTextLoad(done2Title, doneIndex2, done2ID, li3);
+        setTextLoad(done3Title, doneIndex3, done3ID, li3);
+    }//GEN-LAST:event_loadActionPerformed
+    
+    private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
+        changePage(todoIndex1, todoIndex2, todoIndex3, true, li);
+    }//GEN-LAST:event_todoNextActionPerformed
+
+    private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
+        changePage(todoIndex1, todoIndex2, todoIndex3, false, li);
+    }//GEN-LAST:event_todoPrevActionPerformed
+    
     private void doingNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingNextActionPerformed
         changePage(doingIndex1, doingIndex2, doingIndex3, true, li2);
     }//GEN-LAST:event_doingNextActionPerformed
@@ -427,18 +479,105 @@ public class SoftPlanner extends javax.swing.JFrame {
     private void donePrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donePrevActionPerformed
         changePage(doneIndex1, doneIndex2, doneIndex3, false, li3);
     }//GEN-LAST:event_donePrevActionPerformed
-
-    private void load1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_load1ActionPerformed
+    
+    /*
+     * Edit the lists
+     * Code solely to edit the lists
+     * Code to display the lists is above
+     */
+    
+    private boolean isInteger(String n) {
+        try {
+            // Check - if it is an integer, do nothing so the return true below runs.
+            Integer.parseInt(n); 
+        } catch (NumberFormatException e) { 
+            // If it is not an integer, return false
+            JOptionPane.showMessageDialog(null, "That's not a number!");
+            return false;
+        }
+        // If the method doesn't return false, return true
+        return true;
+    }
+    
+    private boolean isWithinBounds(int n, int start, int end) {
+        if (n < start) {
+            JOptionPane.showMessageDialog(null, "That's before the minimum number!");
+            return false;
+        }
+        if (n > end) {
+            JOptionPane.showMessageDialog(null, "That's after the minimum number!");
+            return false;
+        }
+        return true;
+    }
+    
+    private String chooseList() {
+        Object[] possibilities = {"To Do", "Doing", "Done"};
+        String s = (String)JOptionPane.showInputDialog(
+            null,
+            "Which list is the item you want to delete in?\n",
+            "Input",
+            JOptionPane.PLAIN_MESSAGE,
+            null,
+            possibilities,
+            " ");
+        return s;
+    }
+    
+    private void addItem() {
+        String listToAddTo = chooseList();
+        String itemToAdd = JOptionPane.showInputDialog("Write what you want to add.\n");
+        if (itemToAdd == null) {
+            return;
+        }
+        String a = JOptionPane.showInputDialog("a\n");
+    }
+    
+    private void removeItem() {
+        String listToRemoveFrom = chooseList();
+        String indexToRemove = JOptionPane.showInputDialog("What item ID do you want to delete?\n");
+        if (!isInteger(indexToRemove)) {
+            return;
+        }
+        int indexToRemoveInt = Integer.parseInt(indexToRemove);
+        int min = 0;
+        int max = 0;
+        if (listToRemoveFrom.equals("To Do")) {
+            max = li.getSize()-1;
+        }
+        if (listToRemoveFrom.equals("Doing")) {
+            max = li2.getSize()-1;
+        }
+        if (listToRemoveFrom.equals("Done")) {
+            max = li3.getSize()-1;
+        }
+        if (!isWithinBounds(indexToRemoveInt, min, max)) {
+            return;
+        }
+        if (listToRemoveFrom.equals("To Do")) {
+            li.removeItem(indexToRemoveInt);
+        }
+        if (listToRemoveFrom.equals("Doing")) {
+            li2.removeItem(indexToRemoveInt);
+        }
+        if (listToRemoveFrom.equals("Done")) {
+            li3.removeItem(indexToRemoveInt);
+        }
+        load.doClick();
+        JOptionPane.showMessageDialog(null, "Successfully deleted that item.");
+    }
+    
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        addItem();
+    }//GEN-LAST:event_addActionPerformed
 
     private void load2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_load2ActionPerformed
 
-    private void load3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_load3ActionPerformed
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+        removeItem();
+    }//GEN-LAST:event_removeActionPerformed
 
     private void load4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load4ActionPerformed
         // TODO add your handling code here:
@@ -492,6 +631,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     }
     
     public static void loadFile(String file, List list) {
+        list.clearList();
         // Try reading the file
         try {
             // Get the file
@@ -522,14 +662,21 @@ public class SoftPlanner extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add;
+    private javax.swing.JLabel doing1ID;
     private javax.swing.JTextArea doing1Title;
+    private javax.swing.JLabel doing2ID;
     private javax.swing.JTextArea doing2Title;
+    private javax.swing.JLabel doing3ID;
     private javax.swing.JTextArea doing3Title;
     private javax.swing.JLabel doingLabel;
     private javax.swing.JButton doingNext;
     private javax.swing.JButton doingPrev;
+    private javax.swing.JLabel done1ID;
     private javax.swing.JTextArea done1Title;
+    private javax.swing.JLabel done2ID;
     private javax.swing.JTextArea done2Title;
+    private javax.swing.JLabel done3ID;
     private javax.swing.JTextArea done3Title;
     private javax.swing.JLabel doneLabel;
     private javax.swing.JButton doneNext;
@@ -545,12 +692,14 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton load;
-    private javax.swing.JButton load1;
     private javax.swing.JButton load2;
-    private javax.swing.JButton load3;
     private javax.swing.JButton load4;
+    private javax.swing.JButton remove;
+    private javax.swing.JLabel todo1ID;
     private javax.swing.JTextArea todo1Title;
+    private javax.swing.JLabel todo2ID;
     private javax.swing.JTextArea todo2Title;
+    private javax.swing.JLabel todo3ID;
     private javax.swing.JTextArea todo3Title;
     private javax.swing.JLabel todoLabel;
     private javax.swing.JButton todoNext;

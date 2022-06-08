@@ -23,6 +23,10 @@ public class List {
         list.add(s);
     }
     
+    public void removeItem(int n) {
+        list.remove(n);
+    }
+    
     public String getItem(int n) {
         try {
             list.get(n);
@@ -34,6 +38,10 @@ public class List {
     
     public int getSize() {
         return list.size();
+    }
+    
+    public void clearList() {
+        list.clear();
     }
     
 }

@@ -27,6 +27,10 @@ public class List {
         list.remove(n);
     }
     
+    public void replaceItem(int n, String s) {
+        list.set(n, s);
+    }
+    
     public String getItem(int n) {
         try {
             list.get(n);

@@ -62,7 +62,7 @@ public class SoftPlanner extends javax.swing.JFrame {
         add = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         remove = new javax.swing.JButton();
-        load4 = new javax.swing.JButton();
+        move = new javax.swing.JButton();
         todo1ID = new javax.swing.JLabel();
         doing1ID = new javax.swing.JLabel();
         done1ID = new javax.swing.JLabel();
@@ -221,10 +221,10 @@ public class SoftPlanner extends javax.swing.JFrame {
             }
         });
 
-        load4.setText("Move Item");
-        load4.addActionListener(new java.awt.event.ActionListener() {
+        move.setText("Move Item");
+        move.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                load4ActionPerformed(evt);
+                moveActionPerformed(evt);
             }
         });
 
@@ -304,7 +304,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                             .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(remove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(load4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(done3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -368,7 +368,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(remove)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(load4)))
+                                .addComponent(move)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(todo3ID)
@@ -506,11 +506,11 @@ public class SoftPlanner extends javax.swing.JFrame {
         return true;
     }
     
-    private String chooseList() {
+    private String chooseList(String msg) {
         Object[] possibilities = {"To Do", "Doing", "Done"};
         String s = (String)JOptionPane.showInputDialog(
             null,
-            "Choose the list you want to edit.\n",
+            msg,
             "Input",
             JOptionPane.PLAIN_MESSAGE,
             null,
@@ -520,6 +520,10 @@ public class SoftPlanner extends javax.swing.JFrame {
             return null;
         }
         return s;
+    }
+    
+    private String chooseList() {
+        return chooseList("Choose the list you want to edit.\n");
     }
     
     private boolean isValid(String s) {
@@ -537,6 +541,63 @@ public class SoftPlanner extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "That is not a valid entry.");
         return false;
+    }
+    
+    private void moveItem() {
+        String currentList = chooseList("Choose the list that has the item you want to move.\n");
+        if (currentList == null) {
+            return;
+        }
+        String indexToMove = JOptionPane.showInputDialog("What item ID do you want to move?\n");
+        if (indexToMove == null) {
+            return;
+        }
+        if (!isInteger(indexToMove)) {
+            return;
+        }
+        int indexToMoveInt = Integer.parseInt(indexToMove);
+        int min = 0;
+        int max = 0;
+        if (currentList.equals("To Do")) {
+            max = li.getSize()-1;
+        }
+        if (currentList.equals("Doing")) {
+            max = li2.getSize()-1;
+        }
+        if (currentList.equals("Done")) {
+            max = li3.getSize()-1;
+        }
+        if (!isWithinBounds(indexToMoveInt, min, max)) {
+            return;
+        }
+        String newList = chooseList("Choose the list you want to move that item to.\n");
+        if (newList == null) {
+            return;
+        }
+        String contentToMove = "";
+        if (currentList.equals("To Do")) {
+            contentToMove = li.getItem(indexToMoveInt);
+            li.removeItem(indexToMoveInt);
+        }
+        if (currentList.equals("Doing")) {
+            contentToMove = li2.getItem(indexToMoveInt);
+            li2.removeItem(indexToMoveInt);
+        }
+        if (currentList.equals("Done")) {
+            contentToMove = li3.getItem(indexToMoveInt);
+            li3.removeItem(indexToMoveInt);
+        }
+        if (newList.equals("To Do")) {
+            li.addItem(contentToMove);
+        }
+        if (newList.equals("Doing")) {
+            li2.addItem(contentToMove);
+        }
+        if (newList.equals("Done")) {
+            li3.addItem(contentToMove);
+        }
+        load.doClick();
+        JOptionPane.showMessageDialog(null, "Successfully moved that item.");
     }
     
     private void editItem() {
@@ -670,9 +731,9 @@ public class SoftPlanner extends javax.swing.JFrame {
         removeItem();
     }//GEN-LAST:event_removeActionPerformed
 
-    private void load4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_load4ActionPerformed
+    private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
+        moveItem();
+    }//GEN-LAST:event_moveActionPerformed
     
     private static List li = new List();
     private static List li2 = new List();
@@ -784,7 +845,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton load;
-    private javax.swing.JButton load4;
+    private javax.swing.JButton move;
     private javax.swing.JButton remove;
     private javax.swing.JLabel todo1ID;
     private javax.swing.JTextArea todo1Title;

@@ -346,17 +346,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(todo2ID)
-                                    .addComponent(doing2ID)
-                                    .addComponent(done2ID))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -369,6 +359,16 @@ public class SoftPlanner extends javax.swing.JFrame {
                                 .addComponent(remove)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(move)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(todo2ID)
+                            .addComponent(doing2ID)
+                            .addComponent(done2ID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(todo3ID)
@@ -388,7 +388,8 @@ public class SoftPlanner extends javax.swing.JFrame {
     /*
      * Display the lists
      * Code solely to display the lists
-     * Code to edit the lists is below
+     * Code to edit the lists is below,
+     * Code to save the lists is below
      */
     
     private final String blank = " ";
@@ -478,7 +479,8 @@ public class SoftPlanner extends javax.swing.JFrame {
     /*
      * Edit the lists
      * Code solely to edit the lists
-     * Code to display the lists is above
+     * Code to display the lists is above,
+     * Code to save the lists is below
      */
     
     private boolean isInteger(String n) {
@@ -597,6 +599,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             li3.addItem(contentToMove);
         }
         load.doClick();
+        saveLists();
         JOptionPane.showMessageDialog(null, "Successfully moved that item.");
     }
     
@@ -651,6 +654,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             li3.replaceItem(indexToEditInt, replaceWithThis);
         }
         load.doClick();
+        saveLists();
         JOptionPane.showMessageDialog(null, "Successfully edited that item.");
     }
     
@@ -676,6 +680,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             li3.addItem(itemToAdd);
         }
         load.doClick();
+        saveLists();
         JOptionPane.showMessageDialog(null, "Successfully added that item.");
     }
     
@@ -716,6 +721,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             li3.removeItem(indexToRemoveInt);
         }
         load.doClick();
+        saveLists();
         JOptionPane.showMessageDialog(null, "Successfully deleted that item.");
     }
     
@@ -735,9 +741,39 @@ public class SoftPlanner extends javax.swing.JFrame {
         moveItem();
     }//GEN-LAST:event_moveActionPerformed
     
-    private static List li = new List();
-    private static List li2 = new List();
-    private static List li3 = new List();
+    /*
+     * Save the lists
+     * Code solely to save the lists
+     * Code to save the lists is above,
+     * Code to edit the lists is above
+     */
+    
+    private void saveLists() {
+        try {
+            // Gets the ArrayList as a String representation
+            String s1 = (li.toString());
+            String s2 = (li2.toString());
+            String s3 = (li3.toString());
+            // Open the file
+            PrintWriter file1 = new PrintWriter(new FileWriter(li.getLocation()));
+            PrintWriter file2 = new PrintWriter(new FileWriter(li2.getLocation()));
+            PrintWriter file3 = new PrintWriter(new FileWriter(li3.getLocation()));
+            // Replace the contents of the file with the String representation of the ArrayList
+            file1.println(s1);
+            file2.println(s2);
+            file3.println(s3);
+            // Close the file
+            file1.close();
+            file2.close();
+            file3.close();
+        } catch (IOException ioe) {
+            JOptionPane.showMessageDialog(null, "Something went wrong: couldn't save data.");
+        }
+    }
+    
+    private static List li = new List("lists/ToDoList.txt");
+    private static List li2 = new List("lists/DoingList.txt");
+    private static List li3 = new List("lists/DoneList.txt");
     
     private static SoftPlanner sp = new SoftPlanner();
     
@@ -776,18 +812,19 @@ public class SoftPlanner extends javax.swing.JFrame {
         });
         
         // Run on program start
-        loadFile("lists/ToDoList.txt", li);
-        loadFile("lists/DoingList.txt", li2);
-        loadFile("lists/DoneList.txt", li3);
+        System.out.println(li.getLocation());
+        loadFile(li);
+        loadFile(li2);
+        loadFile(li3);
         sp.load.doClick();
     }
     
-    public static void loadFile(String file, List list) {
+    public static void loadFile(List list) {
         list.clearList();
         // Try reading the file
         try {
             // Get the file
-            BufferedReader readFile = new BufferedReader(new FileReader(file));
+            BufferedReader readFile = new BufferedReader(new FileReader(list.getLocation()));
             // Create an empty String to hold the contents of the current line
             String currentLine;
             // Loop through each line in the text file until there are none left
@@ -809,7 +846,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             readFile.close();
         } catch (IOException ioe) {
             // If something goes wrong, print this
-            System.err.println("File Crashed!");
+            JOptionPane.showMessageDialog(null, "Something went wrong: couldn't load data.");
         }
     }
 

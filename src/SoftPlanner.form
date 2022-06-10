@@ -101,7 +101,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="todoLabel" min="-2" max="-2" attributes="0"/>
@@ -129,20 +129,8 @@
                                   <Component id="jScrollPane1" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="jScrollPane7" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="todo2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="doing2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="done2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane8" min="-2" pref="66" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="load" min="-2" max="-2" attributes="0"/>
@@ -155,6 +143,18 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="move" min="-2" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="todo2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="doing2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="done2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane3" min="-2" pref="66" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="66" max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">

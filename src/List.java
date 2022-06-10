@@ -14,9 +14,15 @@ import java.io.*;
 public class List {
     
     private ArrayList<String> list;
+    private String location;
     
-    public List() {
+    public List(String loc) {
         list = new ArrayList<String>();
+        location = loc;
+    }
+    
+    public String getLocation() {
+        return location;
     }
     
     public void addItem(String s) {
@@ -46,6 +52,14 @@ public class List {
     
     public void clearList() {
         list.clear();
+    }
+    
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < list.size(); i++) {
+            s += list.get(i) + "\n";
+        }
+        return s;
     }
     
 }

@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-import java.util.*;
+// Imports
 import java.io.*;
 import javax.swing.*;
 
 /**
- *
+ * Main class for the SoftPlanner program. Most logic is done here.
  * @author cogid4775
  */
 public class SoftPlanner extends javax.swing.JFrame {
@@ -392,17 +392,17 @@ public class SoftPlanner extends javax.swing.JFrame {
     
     private final String blank = " ";
     
-    private Index todoIndex1 = new Index(0);
-    private Index todoIndex2 = new Index(1);
-    private Index todoIndex3 = new Index(2);
+    private final Index todoIndex1 = new Index(0);
+    private final Index todoIndex2 = new Index(1);
+    private final Index todoIndex3 = new Index(2);
     
-    private Index doingIndex1 = new Index(0);
-    private Index doingIndex2 = new Index(1);
-    private Index doingIndex3 = new Index(2);
+    private final Index doingIndex1 = new Index(0);
+    private final Index doingIndex2 = new Index(1);
+    private final Index doingIndex3 = new Index(2);
     
-    private Index doneIndex1 = new Index(0);
-    private Index doneIndex2 = new Index(1);
-    private Index doneIndex3 = new Index(2);
+    private final Index doneIndex1 = new Index(0);
+    private final Index doneIndex2 = new Index(1);
+    private final Index doneIndex3 = new Index(2);
     
     private void setTextLoad(javax.swing.JTextArea l, Index i, javax.swing.JLabel id, List list) {
         if (list.getItem(i.value()) != null) {
@@ -792,11 +792,11 @@ public class SoftPlanner extends javax.swing.JFrame {
         }
     }
     
-    private static List li = new List("lists/ToDoList.txt");
-    private static List li2 = new List("lists/DoingList.txt");
-    private static List li3 = new List("lists/DoneList.txt");
+    private static final List li = new List("lists/ToDoList.txt");
+    private static final List li2 = new List("lists/DoingList.txt");
+    private static final List li3 = new List("lists/DoneList.txt");
     
-    private static SoftPlanner sp = new SoftPlanner();
+    private static final SoftPlanner sp = new SoftPlanner();
     
     /**
      * @param args the command line arguments

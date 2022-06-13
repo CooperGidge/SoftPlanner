@@ -70,16 +70,13 @@
                           <Component id="doneLabel" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="load" max="32767" attributes="0"/>
-                              <Component id="add" max="32767" attributes="0"/>
-                              <Component id="edit" max="32767" attributes="0"/>
-                              <Component id="remove" alignment="0" max="32767" attributes="0"/>
-                              <Component id="move" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="move1" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="load" max="32767" attributes="0"/>
+                          <Component id="add" max="32767" attributes="0"/>
+                          <Component id="edit" max="32767" attributes="0"/>
+                          <Component id="remove" alignment="0" max="32767" attributes="0"/>
+                          <Component id="move" max="32767" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="done3ID" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
@@ -167,8 +164,6 @@
                       <Component id="remove" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="move" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="move1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -504,14 +499,6 @@
         <Property name="text" type="java.lang.String" value="(------)"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="move1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Move Item"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="move1ActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

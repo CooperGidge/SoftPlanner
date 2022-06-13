@@ -29,6 +29,10 @@ public class List {
         list.add(s);
     }
     
+    public void addItem(int n, String s) {
+        list.add(n, s);
+    }
+    
     public void removeItem(int n) {
         list.remove(n);
     }

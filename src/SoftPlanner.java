@@ -72,7 +72,6 @@ public class SoftPlanner extends javax.swing.JFrame {
         todo3ID = new javax.swing.JLabel();
         doing3ID = new javax.swing.JLabel();
         done3ID = new javax.swing.JLabel();
-        move1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SoftPlanner");
@@ -256,13 +255,6 @@ public class SoftPlanner extends javax.swing.JFrame {
         done3ID.setText("(------)");
         done3ID.setToolTipText("");
 
-        move1.setText("Move Item");
-        move1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                move1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -307,15 +299,13 @@ public class SoftPlanner extends javax.swing.JFrame {
                             .addComponent(done2ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(doneLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(remove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(move1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(remove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(done3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -386,9 +376,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(remove)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(move)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(move1)))
+                        .addComponent(move)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -586,6 +574,29 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (newList == null) {
             return;
         }
+        min = 0;
+        max = 0;
+        if (newList.equals("To Do")) {
+            max = li.getSize();
+        }
+        if (newList.equals("Doing")) {
+            max = li2.getSize();
+        }
+        if (newList.equals("Done")) {
+            max = li3.getSize();
+        }
+        String indexToPlace = JOptionPane.showInputDialog("Choose the item ID of the slot you want to put the item.\n"
+            + "Enter " + max + " to add the item to the end of the list.");
+        if (indexToPlace == null) {
+            return;
+        }
+        if (!isInteger(indexToPlace)) {
+            return;
+        }
+        int indexToPlaceInt = Integer.parseInt(indexToPlace);
+        if (!isWithinBounds(indexToPlaceInt, min, max)) {
+            return;
+        }
         String contentToMove = "";
         if (currentList.equals("To Do")) {
             contentToMove = li.getItem(indexToMoveInt);
@@ -600,13 +611,13 @@ public class SoftPlanner extends javax.swing.JFrame {
             li3.removeItem(indexToMoveInt);
         }
         if (newList.equals("To Do")) {
-            li.addItem(contentToMove);
+            li.addItem(indexToPlaceInt, contentToMove);
         }
         if (newList.equals("Doing")) {
-            li2.addItem(contentToMove);
+            li2.addItem(indexToPlaceInt, contentToMove);
         }
         if (newList.equals("Done")) {
-            li3.addItem(contentToMove);
+            li3.addItem(indexToPlaceInt, contentToMove);
         }
         load.doClick();
         saveLists();
@@ -750,10 +761,6 @@ public class SoftPlanner extends javax.swing.JFrame {
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
         moveItem();
     }//GEN-LAST:event_moveActionPerformed
-
-    private void move1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_move1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_move1ActionPerformed
     
     /*
      * Save the lists
@@ -897,7 +904,6 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton load;
     private javax.swing.JButton move;
-    private javax.swing.JButton move1;
     private javax.swing.JButton remove;
     private javax.swing.JLabel todo1ID;
     private javax.swing.JTextArea todo1Title;

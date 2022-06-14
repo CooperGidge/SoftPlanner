@@ -390,23 +390,40 @@ public class SoftPlanner extends javax.swing.JFrame {
      * Code to save the lists is below
      */
     
+    // Used when a field is blank
     private final String blank = " ";
     
+    // Indexes for the to do list pagination
     private final Index todoIndex1 = new Index(0);
     private final Index todoIndex2 = new Index(1);
     private final Index todoIndex3 = new Index(2);
     
+    // Indexes for the doing list pagination
     private final Index doingIndex1 = new Index(0);
     private final Index doingIndex2 = new Index(1);
     private final Index doingIndex3 = new Index(2);
     
+    // Indexes for the done list pagination
     private final Index doneIndex1 = new Index(0);
     private final Index doneIndex2 = new Index(1);
     private final Index doneIndex3 = new Index(2);
     
+    /**
+     * Sets the text of the pagination text areas
+     * @param l the text area to set the text of
+     * @param i the index of the item to set the text area to
+     * @param id the label associated with the text area
+     * @param list the list that has the item to set the text area to
+     */
     private void setTextLoad(javax.swing.JTextArea l, Index i, javax.swing.JLabel id, List list) {
+        // If the list item provided doesn't exist, it will return null
+        // So if null is returned, then use the "else" condition and set
+        // the text area and label to blank values.
         if (list.getItem(i.value()) != null) {
+            // If the item exists...
+            // ...set the text area to its value
            l.setText(list.getItem(i.value()));
+           // ...and set the label to the item's index
            id.setText("ID: " + i.value());
         } else {
             l.setText(blank);
@@ -414,28 +431,49 @@ public class SoftPlanner extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Changes the page of the paginated list
+     * @param i1 index of the first paginated item
+     * @param i2 index of the second paginated item
+     * @param i3 index of the third paginated item
+     * @param isNext true to move to the next page, false to move to the previous
+     * @param list the list to change the page of
+     */
     private void changePage(Index i1, Index i2, Index i3, boolean isNext, List list) {
+        // If moving to the previous page
         if (!isNext) {
+            // Check if the previous page exists
             if (i1.value() > 0) {
+                // If it exists, subtract 3 from the indexes to move to the previous page
                 i1.subtractThree();
                 i2.subtractThree();
                 i3.subtractThree();
+                // Load the new data
                 load.doClick();
             } else {
+                // If the previous page does not exist, display this error
                 JOptionPane.showMessageDialog(null, "You are already at the start of the list.");
             }
+        // If moving to the next page
         } else {
+            // check if the next page exists
             if (i3.value() < (list.getSize()-1)) {
+                // If it exists, add 3 to the indexes to move to the next page
                 i1.addThree();
                 i2.addThree();
                 i3.addThree();
+                // Load the new data
                 load.doClick();
             } else {
+                // If the next page does not exist, display this error
                 JOptionPane.showMessageDialog(null, "You are already at the end of the list.");
             }
         }
     }
     
+    /**
+     * Load the index data using the setTextLoad method
+     */
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
         setTextLoad(todo1Title, todoIndex1, todo1ID, li);
         setTextLoad(todo2Title, todoIndex2, todo2ID, li);
@@ -450,26 +488,44 @@ public class SoftPlanner extends javax.swing.JFrame {
         setTextLoad(done3Title, doneIndex3, done3ID, li3);
     }//GEN-LAST:event_loadActionPerformed
     
+    /**
+     * Move to the next page in the to do pagination using the changePage method
+     */
     private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
         changePage(todoIndex1, todoIndex2, todoIndex3, true, li);
     }//GEN-LAST:event_todoNextActionPerformed
 
+    /**
+     * Move to the previous page in the to do pagination using the changePage method
+     */
     private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
         changePage(todoIndex1, todoIndex2, todoIndex3, false, li);
     }//GEN-LAST:event_todoPrevActionPerformed
     
+    /**
+     * Move to the next page in the doing pagination using the changePage method
+     */
     private void doingNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingNextActionPerformed
         changePage(doingIndex1, doingIndex2, doingIndex3, true, li2);
     }//GEN-LAST:event_doingNextActionPerformed
 
+    /**
+     * Move to the previous page in the doing pagination using the changePage method
+     */
     private void doingPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingPrevActionPerformed
         changePage(doingIndex1, doingIndex2, doingIndex3, false, li2);
     }//GEN-LAST:event_doingPrevActionPerformed
 
+    /**
+     * Move to the next page in the done pagination using the changePage method
+     */
     private void doneNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneNextActionPerformed
         changePage(doneIndex1, doneIndex2, doneIndex3, true, li3);
     }//GEN-LAST:event_doneNextActionPerformed
 
+    /**
+     * Move to the previous page in the done pagination using the changePage method
+     */
     private void donePrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donePrevActionPerformed
         changePage(doneIndex1, doneIndex2, doneIndex3, false, li3);
     }//GEN-LAST:event_donePrevActionPerformed
@@ -481,12 +537,17 @@ public class SoftPlanner extends javax.swing.JFrame {
      * Code to save the lists is below
      */
     
+    /**
+     * Checks if a String can be an Integer
+     * @param n the String to check
+     * @return true if the String can be an Integer, false otherwise
+     */
     private boolean isInteger(String n) {
         try {
-            // Check - if it is an integer, do nothing so the return true below runs.
+            // Check - if it is an integer, do nothing so the return true below runs
             Integer.parseInt(n); 
         } catch (NumberFormatException e) { 
-            // If it is not an integer, return false
+            // If it is not an integer, print an error and return false
             JOptionPane.showMessageDialog(null, "That's not a number!");
             return false;
         }
@@ -494,20 +555,69 @@ public class SoftPlanner extends javax.swing.JFrame {
         return true;
     }
     
+    /**
+     * Checks if an integer is between two integers (inclusive)
+     * @param n the integer to check
+     * @param start the lowest (minimum) integer
+     * @param end the highest (maximum) integer
+     */
     private boolean isWithinBounds(int n, int start, int end) {
+        // If n is before the starting (minimum) number...
         if (n < start) {
+            // ...then print an error and return false
             JOptionPane.showMessageDialog(null, "That's before the minimum number!");
             return false;
         }
+        // If n is after the ending (maximum) number...
         if (n > end) {
+            // ...then print an error and return false
             JOptionPane.showMessageDialog(null, "That's after the maximum number!");
             return false;
         }
+        // If none of the other conditions are met, then n is in the range, so return true
         return true;
     }
     
+    /**
+     * Checks if a String is considered valid for the program
+     * @param s the String to check
+     * @return true if the String is less than or equal to 120, has at least one non-space character, and isn't empty. False otherwise.
+     */
+    private boolean isValid(String s) {
+        // If s is greater than 120 characters...
+        if (s.length() > 120) {
+            // ...then print an error message and return false
+            JOptionPane.showMessageDialog(null, "That is too long! Maximum is 120 characters.");
+            return false;
+        }
+        // If s is empty...
+        if (s.equals("")) {
+            // ...then set s to just a space so the next check fails
+            s = " ";
+        }
+        // Loop through each character in s
+        for (int i = 0; i < s.length(); i++) {
+            // If there is a character that isn't a space...
+            if (!s.substring(i, i + 1).equals(" ")) {
+                // ...then return true because the entry is valid
+                return true;
+            }
+        }
+        // If the check above doesn't return true, then s is invalid,
+        // so print an error and return false
+        JOptionPane.showMessageDialog(null, "That is not a valid entry.");
+        return false;
+    }
+    
+    /**
+     * Allows the user to select one of the list options with custom instructions
+     * @param msg the instructions given to the user
+     * @return the name of the list chosen, null if no list is chosen
+     */
     private String chooseList(String msg) {
+        // Possible options
         Object[] possibilities = {"To Do", "Doing", "Done"};
+        // Prompt to get user input that uses the instruction message defined by the String msg
         String s = (String)JOptionPane.showInputDialog(
             null,
             msg,
@@ -516,48 +626,51 @@ public class SoftPlanner extends javax.swing.JFrame {
             null,
             possibilities,
             " ");
+        // If the user doesn't choose a list (clicks "cancel"), return null
         if (s == null) {
             return null;
         }
+        // Otherwise return the list chosen
         return s;
     }
     
+    /**
+     * Allows the user to select one of the list options with default instructions
+     * @return the name of the list chosen, null if no list is chosen
+     */
     private String chooseList() {
+        // Use the chooseList method with parameter String msg, just provide the following default instruction
+        // Return what is returned using the chooseList method with parameter String msg
         return chooseList("Choose the list you want to edit.\n");
     }
     
-    private boolean isValid(String s) {
-        if (s.length() > 120) {
-            JOptionPane.showMessageDialog(null, "That is too long! Maximum is 120 characters.");
-            return false;
-        }
-        if (s.equals("")) {
-            s = " ";
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (!s.substring(i, i + 1).equals(" ")) {
-                return true;
-            }
-        }
-        JOptionPane.showMessageDialog(null, "That is not a valid entry.");
-        return false;
-    }
-    
+    /**
+     * Moves an item to a new position in any of the lists
+     */
     private void moveItem() {
+        // Prompt the user for the list the item they want to move is in
         String currentList = chooseList("Choose the list that has the item you want to move.\n");
+        // Stop the method if the user doesn't choose a list
         if (currentList == null) {
             return;
         }
+        // Prompt the user for the index of the item they want to move
         String indexToMove = JOptionPane.showInputDialog("What item ID do you want to move?\n");
+        // Stop the method if the user doesn't choose an index
         if (indexToMove == null) {
             return;
         }
+        // Stop the method if the user didn't input an integer
         if (!isInteger(indexToMove)) {
             return;
         }
+        // Convert the String with the index to an int
         int indexToMoveInt = Integer.parseInt(indexToMove);
+        // Minimum value the user can choose
         int min = 0;
+        // Variable that will get replaced with the maximum value the user can choose
         int max = 0;
+        // Set the max variable to the highest index in the list
         if (currentList.equals("To Do")) {
             max = li.getSize()-1;
         }
@@ -567,14 +680,22 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (currentList.equals("Done")) {
             max = li3.getSize()-1;
         }
+        // If the index the user chose isn't within these bounds, stop the method
         if (!isWithinBounds(indexToMoveInt, min, max)) {
             return;
         }
+        // Prompt the user for the list they want to move the item to
         String newList = chooseList("Choose the list you want to move that item to.\n");
+        // Stop the method if they don't choose a list.
         if (newList == null) {
             return;
         }
+        // Set the max and min for the next index selection
+        // Reason we are doing this now is so we can display the max value in the instruction prompt
+        // Set the minimum value the user can choose (still zero)
         min = 0;
+        // Change the max variable to one plus the highest index
+        // to account for adding the item to the end of the list
         max = 0;
         if (newList.equals("To Do")) {
             max = li.getSize();
@@ -585,19 +706,36 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (newList.equals("Done")) {
             max = li3.getSize();
         }
+        // Prompt the user for the index of the position they want to add the item to
         String indexToPlace = JOptionPane.showInputDialog("Choose the item ID of the slot you want to put the item.\n"
             + "Enter " + max + " to add the item to the end of the list.");
+        // Stop the method if the user doesn't choose an index
         if (indexToPlace == null) {
             return;
         }
+        // Stop the method if the user didn't input an integer
         if (!isInteger(indexToPlace)) {
             return;
         }
+        // Convert the String with the index to an int
         int indexToPlaceInt = Integer.parseInt(indexToPlace);
+        // If the list we are moving the item from is the same as the list we are moving the item to,
+        // and the index chosen is the max case,
+        // then subtract one from the index chosen
+        // This is to prevent an error regarding using the MAX case to add an item to the end of a list,
+        // as if the lists are the same, upon removing the original instance of the item from the list,
+        // it will subtract the amount of available spots by one.
+        if (currentList.equals(newList) && indexToPlaceInt == max) {
+            indexToPlaceInt--;
+        }
+        // If the index the user chose isn't within these bounds, stop the method
         if (!isWithinBounds(indexToPlaceInt, min, max)) {
             return;
         }
+        // Initialize a String to hold the content in the item to move
         String contentToMove = "";
+        // Set the contentToMove String to the value of the item to move
+        // and remove its original instance
         if (currentList.equals("To Do")) {
             contentToMove = li.getItem(indexToMoveInt);
             li.removeItem(indexToMoveInt);
@@ -610,6 +748,7 @@ public class SoftPlanner extends javax.swing.JFrame {
             contentToMove = li3.getItem(indexToMoveInt);
             li3.removeItem(indexToMoveInt);
         }
+        // Add a new item to the chosen list with the same value as the item that was to be moved
         if (newList.equals("To Do")) {
             li.addItem(indexToPlaceInt, contentToMove);
         }
@@ -619,26 +758,41 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (newList.equals("Done")) {
             li3.addItem(indexToPlaceInt, contentToMove);
         }
+        // Load the new data
         load.doClick();
+        // Save the lists
         saveLists();
+        // Print a success message
         JOptionPane.showMessageDialog(null, "Successfully moved that item.");
     }
     
+    /**
+     * Edits an item in a list
+     */
     private void editItem() {
+        // Prompt the user for the list the item they want to edit is in
         String listToEdit = chooseList();
+        // If the user doesn't choose a list, stop the method
         if (listToEdit == null) {
             return;
         }
+        // Prompt the user for the index of the item they want to edit
         String indexToEdit = JOptionPane.showInputDialog("What item ID do you want to edit?\n");
+        // If the user doesn't provide an index, stop the program
         if (indexToEdit == null) {
             return;
         }
+        // If the index provided is not an integer, stop the program
         if (!isInteger(indexToEdit)) {
             return;
         }
+        // Set the String representation of the index to an int
         int indexToEditInt = Integer.parseInt(indexToEdit);
+        // Minimum value the user can choose
         int min = 0;
+        // Initialize the maximum variable
         int max = 0;
+        // Set the maximum variable to the highest index in the chosen list
         if (listToEdit.equals("To Do")) {
             max = li.getSize()-1;
         }
@@ -648,10 +802,13 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToEdit.equals("Done")) {
             max = li3.getSize()-1;
         }
+        // Stop the method if the index chosen is not within these bounds
         if (!isWithinBounds(indexToEditInt, min, max)) {
             return;
         }
+        // Initialize a variable to hold the value of the item to edit
         String itemToEditContent = "";
+        // Set itemToEditContent to the value of the item the user wants to edit
         if (listToEdit.equals("To Do")) {
             itemToEditContent = li.getItem(indexToEditInt);
         }
@@ -661,10 +818,13 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToEdit.equals("Done")) {
             itemToEditContent = li3.getItem(indexToEditInt);
         }
+        // Prompt the user to make the changes they want and save this value
         String replaceWithThis = JOptionPane.showInputDialog(null, "Make your changes now.\n", itemToEditContent);
+        // If the user doesn't do anything (presses "cancel"), stop the method
         if (replaceWithThis == null) {
             return;
         }
+        // Replace the item to edit with its new value
         if (listToEdit.equals("To Do")) {
             li.replaceItem(indexToEditInt, replaceWithThis);
         }
@@ -674,23 +834,35 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToEdit.equals("Done")) {
             li3.replaceItem(indexToEditInt, replaceWithThis);
         }
+        // Load the new data
         load.doClick();
+        // Save the lists
         saveLists();
+        // Print the success message
         JOptionPane.showMessageDialog(null, "Successfully edited that item.");
     }
     
+    /**
+     * Adds an item to a list
+     */
     private void addItem() {
+        // Prompt the user for the list they want to add an item to
         String listToAddTo = chooseList();
+        // If the user doesn't choose a list, stop the program
         if (listToAddTo == null) {
             return;
         }
+        // Prompt the user for the content they want to add
         String itemToAdd = JOptionPane.showInputDialog("Write what you want to add to the list.\n");
+        // If they don't put anything, stop the method
         if (itemToAdd == null) {
             return;
         }
+        // If what they put isn't valid, stop the method
         if (!isValid(itemToAdd)) {
             return;
         }
+        // Add an item with the content provided to the chosen list
         if (listToAddTo.equals("To Do")) {
             li.addItem(itemToAdd);
         }
@@ -700,8 +872,11 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToAddTo.equals("Done")) {
             li3.addItem(itemToAdd);
         }
+        // Load the new data
         load.doClick();
+        // Save the lists
         saveLists();
+        // Print success message
         JOptionPane.showMessageDialog(null, "Successfully added that item.");
     }
     

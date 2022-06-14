@@ -1,4 +1,4 @@
-temm1
+temmm mmm mm m 1
 temm tem temm tem tem tem temm temm temm 2
 no 3
 me 4
@@ -6,6 +6,6 @@ five 5
 six 6
 se ven 7
 he 8 nine
-9 eat 7 ??
+NINE
 Ten
 

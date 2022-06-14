@@ -581,7 +581,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     /**
      * Checks if a String is considered valid for the program
      * @param s the String to check
-     * @return true if the String is less than or equal to 120, has at least one non-space character, and isn't empty. False otherwise.
+     * @return true if the String has less than or exactly 120 characters, has at least one non-space character, and isn't empty. False otherwise.
      */
     private boolean isValid(String s) {
         // If s is greater than 120 characters...

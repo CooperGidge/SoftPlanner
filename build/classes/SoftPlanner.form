@@ -59,24 +59,29 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="doneNext" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jScrollPane9" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jScrollPane7" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jScrollPane8" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="donePrev" alignment="1" max="32767" attributes="0"/>
-                          <Component id="done1ID" max="32767" attributes="0"/>
-                          <Component id="done2ID" max="32767" attributes="0"/>
-                          <Component id="doneLabel" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="doneNext" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jScrollPane9" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="donePrev" alignment="1" max="32767" attributes="0"/>
+                              <Component id="done1ID" max="32767" attributes="0"/>
+                              <Component id="done2ID" max="32767" attributes="0"/>
+                              <Component id="doneLabel" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane7" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="load" max="32767" attributes="0"/>
-                          <Component id="add" max="32767" attributes="0"/>
-                          <Component id="edit" max="32767" attributes="0"/>
-                          <Component id="remove" alignment="0" max="32767" attributes="0"/>
-                          <Component id="move" max="32767" attributes="0"/>
-                          <Component id="optionsLabel" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="load" max="32767" attributes="0"/>
+                              <Component id="add" max="32767" attributes="0"/>
+                              <Component id="edit" max="32767" attributes="0"/>
+                              <Component id="remove" alignment="0" max="32767" attributes="0"/>
+                              <Component id="move" max="32767" attributes="0"/>
+                              <Component id="optionsLabel" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="clear" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="done3ID" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
@@ -90,68 +95,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="doneLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="donePrev" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane9" min="-2" pref="66" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="done1ID" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="todoLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="todoPrev" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="66" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="doingLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="doingPrev" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" min="-2" pref="66" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="todo1ID" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="doing1ID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane5" pref="66" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" pref="66" max="32767" attributes="0"/>
-                          <Component id="jScrollPane7" alignment="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="todo2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doing2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="done2ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" min="-2" pref="66" max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="66" max="-2" attributes="0"/>
-                          <Component id="jScrollPane8" min="-2" pref="66" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="todo3ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doing3ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="done3ID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="todoNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doingNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doneNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="optionsLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -164,7 +107,79 @@
                       <Component id="remove" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="move" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="clear" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="todoLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="todoPrev" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="doingLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="doingPrev" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane6" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="todo1ID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="doing1ID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="doneLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="donePrev" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane9" min="-2" pref="66" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="done1ID" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane5" pref="66" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="66" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="todo2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="doing2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="done2ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane7" min="-2" pref="66" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane3" min="-2" pref="66" max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" min="-2" pref="66" max="-2" attributes="0"/>
+                  <Component id="jScrollPane8" min="-2" pref="66" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="todo3ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doing3ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="done3ID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="todoNext" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doingNext" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="doneNext" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -499,6 +514,14 @@
         <Property name="text" type="java.lang.String" value="(------)"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="clear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Clear List"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

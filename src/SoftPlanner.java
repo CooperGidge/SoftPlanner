@@ -34,7 +34,7 @@ public class SoftPlanner extends javax.swing.JFrame {
         todoNext = new javax.swing.JButton();
         todoPrev = new javax.swing.JButton();
         todoLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        optionsLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         todo2Title = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -100,8 +100,8 @@ public class SoftPlanner extends javax.swing.JFrame {
         todoLabel.setText("TO DO");
         todoLabel.setToolTipText("");
 
-        jLabel4.setText("OPTIONS");
-        jLabel4.setToolTipText("");
+        optionsLabel.setText("OPTIONS");
+        optionsLabel.setToolTipText("");
 
         todo2Title.setEditable(false);
         todo2Title.setColumns(20);
@@ -305,7 +305,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                             .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(remove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(done3ID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -366,7 +366,7 @@ public class SoftPlanner extends javax.swing.JFrame {
                             .addComponent(doingNext)
                             .addComponent(doneNext)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(optionsLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(load)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -473,6 +473,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     
     /**
      * Load the index data using the setTextLoad method
+     * @param evt load trigger event
      */
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
         setTextLoad(todo1Title, todoIndex1, todo1ID, li);
@@ -490,6 +491,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     
     /**
      * Move to the next page in the to do pagination using the changePage method
+     * @param evt to do next trigger event
      */
     private void todoNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoNextActionPerformed
         changePage(todoIndex1, todoIndex2, todoIndex3, true, li);
@@ -497,6 +499,7 @@ public class SoftPlanner extends javax.swing.JFrame {
 
     /**
      * Move to the previous page in the to do pagination using the changePage method
+     * @param evt to do previous trigger event
      */
     private void todoPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoPrevActionPerformed
         changePage(todoIndex1, todoIndex2, todoIndex3, false, li);
@@ -504,6 +507,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     
     /**
      * Move to the next page in the doing pagination using the changePage method
+     * @param evt doing next trigger event
      */
     private void doingNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingNextActionPerformed
         changePage(doingIndex1, doingIndex2, doingIndex3, true, li2);
@@ -511,6 +515,7 @@ public class SoftPlanner extends javax.swing.JFrame {
 
     /**
      * Move to the previous page in the doing pagination using the changePage method
+     * @param evt doing previous trigger event
      */
     private void doingPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doingPrevActionPerformed
         changePage(doingIndex1, doingIndex2, doingIndex3, false, li2);
@@ -518,6 +523,7 @@ public class SoftPlanner extends javax.swing.JFrame {
 
     /**
      * Move to the next page in the done pagination using the changePage method
+     * @param evt done next trigger event
      */
     private void doneNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneNextActionPerformed
         changePage(doneIndex1, doneIndex2, doneIndex3, true, li3);
@@ -525,6 +531,7 @@ public class SoftPlanner extends javax.swing.JFrame {
 
     /**
      * Move to the previous page in the done pagination using the changePage method
+     * @param evt done previous trigger event
      */
     private void donePrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donePrevActionPerformed
         changePage(doneIndex1, doneIndex2, doneIndex3, false, li3);
@@ -880,21 +887,33 @@ public class SoftPlanner extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Successfully added that item.");
     }
     
+    /**
+     * Removes an item from a list
+     */
     private void removeItem() {
+        // Prompt the user for the list that has the item they want to remove
         String listToRemoveFrom = chooseList();
+        // Stop the method if the user doesn't choose a list
         if (listToRemoveFrom == null) {
             return;
         }
+        // Prompt the user for the index of the item to delete
         String indexToRemove = JOptionPane.showInputDialog("What item ID do you want to delete?\n");
+        // Stop the method if the user doesn't input anything
         if (indexToRemove == null) {
             return;
         }
+        // Stop the method if the user doesn't input a number
         if (!isInteger(indexToRemove)) {
             return;
         }
+        // Convert the String of the index to remove to an int
         int indexToRemoveInt = Integer.parseInt(indexToRemove);
+        // Minimum value the index can be
         int min = 0;
+        // Initialize the variable to hold the maximum the index can be
         int max = 0;
+        // Set the maximum variable to the highest index in the list
         if (listToRemoveFrom.equals("To Do")) {
             max = li.getSize()-1;
         }
@@ -904,9 +923,11 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToRemoveFrom.equals("Done")) {
             max = li3.getSize()-1;
         }
+        // Stop the method if the user's inputted index is not within the range
         if (!isWithinBounds(indexToRemoveInt, min, max)) {
             return;
         }
+        // Remove the index provided by the user
         if (listToRemoveFrom.equals("To Do")) {
             li.removeItem(indexToRemoveInt);
         }
@@ -916,23 +937,42 @@ public class SoftPlanner extends javax.swing.JFrame {
         if (listToRemoveFrom.equals("Done")) {
             li3.removeItem(indexToRemoveInt);
         }
+        // Load the new data
         load.doClick();
+        // Save the lists
         saveLists();
+        // Print success message
         JOptionPane.showMessageDialog(null, "Successfully deleted that item.");
     }
     
+    /**
+     * Event to add an item to a list
+     * @param evt add trigger event
+     */
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         addItem();
     }//GEN-LAST:event_addActionPerformed
 
+    /**
+     * Event to edit an item in a list
+     * @param evt edit trigger event
+     */
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         editItem();
     }//GEN-LAST:event_editActionPerformed
 
+    /**
+     * Event to remove an item from a list
+     * @param evt remove trigger event
+     */
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
         removeItem();
     }//GEN-LAST:event_removeActionPerformed
 
+    /**
+     * Event to move an item in a list to another or the same list
+     * @param evt move trigger event
+     */
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
         moveItem();
     }//GEN-LAST:event_moveActionPerformed
@@ -944,34 +984,44 @@ public class SoftPlanner extends javax.swing.JFrame {
      * Code to edit the lists is above
      */
     
+    /**
+     * Saves all the lists
+     */
     private void saveLists() {
         try {
-            // Gets the ArrayList as a String representation
+            // Gets each list as a String representation
             String s1 = (li.toString());
             String s2 = (li2.toString());
             String s3 = (li3.toString());
-            // Open the file
+            // Opens the three files that are used to save the three lists
             PrintWriter file1 = new PrintWriter(new FileWriter(li.getLocation()));
             PrintWriter file2 = new PrintWriter(new FileWriter(li2.getLocation()));
             PrintWriter file3 = new PrintWriter(new FileWriter(li3.getLocation()));
-            // Replace the contents of the file with the String representation of the ArrayList
+            // Replace the contents of each save file with the String representations of the lists
             file1.println(s1);
             file2.println(s2);
             file3.println(s3);
-            // Close the file
+            // Close the save files
             file1.close();
             file2.close();
             file3.close();
         } catch (IOException ioe) {
+            // If something goes wrong above, print this error message
             JOptionPane.showMessageDialog(null, "Something went wrong: couldn't save data.");
         }
     }
     
-    private static final List li = new List("lists/ToDoList.txt");
-    private static final List li2 = new List("lists/DoingList.txt");
-    private static final List li3 = new List("lists/DoneList.txt");
+    /*
+     * The remaining code below is code that needs to be run on first startup
+     */
     
-    private static final SoftPlanner sp = new SoftPlanner();
+    // Initialize the to do, doing, and done lists
+    // To Do (li for list 1)
+    private static final List li = new List("lists/ToDoList.txt");
+    // Doing (li2 for list 2)
+    private static final List li2 = new List("lists/DoingList.txt");
+    // Done (li3 for list 3)
+    private static final List li3 = new List("lists/DoneList.txt");
     
     /**
      * @param args the command line arguments
@@ -1007,19 +1057,23 @@ public class SoftPlanner extends javax.swing.JFrame {
             }
         });
         
-        // Run on program start
-        System.out.println(li.getLocation());
+        // Load the three save files into their respective list classes
+        // This is done on startup, hence why its in the main method
         loadFile(li);
         loadFile(li2);
         loadFile(li3);
-        sp.load.doClick();
     }
     
+    /**
+     * Loads the contents of a save file into its list
+     * @param list the list to populate with the contents of its save file
+     */
     public static void loadFile(List list) {
+        // Clear the list so that it's empty
         list.clearList();
-        // Try reading the file
+        // Try reading the save file
         try {
-            // Get the file
+            // Open the save file
             BufferedReader readFile = new BufferedReader(new FileReader(list.getLocation()));
             // Create an empty String to hold the contents of the current line
             String currentLine;
@@ -1032,20 +1086,18 @@ public class SoftPlanner extends javax.swing.JFrame {
                 if (currentLine.equals("")) {
                     break;
                 }
-                // Add the contents of this line to a new element of the ArrayList
+                // Add the contents of this line to a new item of the list
                 list.addItem(currentLine);
-                System.out.println(list.getItem(0));
-                //System.out.println(currentLine);
             }
-            System.out.println("");
-            // Close the file now that we are done with it
+            // Close the save file now that we are done with it
             readFile.close();
         } catch (IOException ioe) {
             // If something goes wrong, print this
-            JOptionPane.showMessageDialog(null, "Something went wrong: couldn't load data.");
+            JOptionPane.showMessageDialog(null, "Something went wrong: couldn't load data. The save file might be missing.");
         }
     }
 
+    // GUI Component Variables
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel doing1ID;
@@ -1067,7 +1119,6 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JButton doneNext;
     private javax.swing.JButton donePrev;
     private javax.swing.JButton edit;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1079,6 +1130,7 @@ public class SoftPlanner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton load;
     private javax.swing.JButton move;
+    private javax.swing.JLabel optionsLabel;
     private javax.swing.JButton remove;
     private javax.swing.JLabel todo1ID;
     private javax.swing.JTextArea todo1Title;

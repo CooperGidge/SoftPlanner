@@ -1,11 +1,2 @@
-tem 1
-temm tem temm tem tem tem temm temm temm 2
-no 3
-me 4
-five 5
-six 6
-se ven 7
-he 8 nine
-NINE
-Ten
+present the program
 

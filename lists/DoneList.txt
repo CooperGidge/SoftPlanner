@@ -1,7 +1,7 @@
-tem tem 1
-2 two
-three 3
-four 4
-five 5
-eat cake
+load items method
+add item method
+edit item method
+delete item method
+move item method
+clear list method
 

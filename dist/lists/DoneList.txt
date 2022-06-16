@@ -1,0 +1,7 @@
+load items method
+add item method
+edit item method
+delete item method
+move item method
+clear list method
+

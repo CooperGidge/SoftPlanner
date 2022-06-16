@@ -17,3 +17,5 @@ SoftPlanner is a simple Java program for planning and tracking the progress of a
 **Note #1:** The `lists` folder **outside** the `dist` folder is for development - for use of the program, you only need the `dist` folder and its contents.
 
 **Note #2:** Keep all files in the `dist` folder together. They need to be in the same folder in order to work properly.
+
+**Note #3:** Remember that NetBeans may overwrite any data in the `dist` folder if you are using the IDE. This shouldn't be a problem if you're not using the IDE though.

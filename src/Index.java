@@ -45,7 +45,7 @@ public class Index {
     
     /**
      * Sets the value of the index
-     * @param in the value to set the index to
+     * @param n the value to set the index to
      */
     public void setValue(int n) {
         a = n;
